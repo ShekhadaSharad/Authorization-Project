@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Serilog.Context;
 using SharadDemoProject.Controllers.Context;
 using SharadDemoProject.Model.Authentication;
 
@@ -14,6 +15,7 @@ namespace SharadDemoProject.Controllers
 
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly HttpContext _context;
 
         public AdminAuthorizController(
             UserManager<ApplicationUser> userManager,
@@ -39,7 +41,9 @@ namespace SharadDemoProject.Controllers
 
                 if (!await _roleManager.RoleExistsAsync(role))
                 {
-                    Serilog.Log.Error($"This Role {role} Does Not Exist. ");
+                     LogContext.PushProperty("UserName", _context.User.Identity.Name);
+
+                    Serilog.Log.Error($"This Role {role} Does Not Exist.{_context.User.Identity.Name} ");
                     return StatusCode(StatusCodes.Status500InternalServerError,
                         new Response { Status = "Error", Message = "This Role Does Not Exist." });
                 }
