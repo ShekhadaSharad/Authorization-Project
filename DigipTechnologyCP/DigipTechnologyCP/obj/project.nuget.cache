@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "k4J6dhm1wq2ygy0aKze5RAI+WY/yUqlMoRWbO4/1t1kVZDdimRzU2JkuOTUp9pREUbt4D03PVFLjYonUNFPV6g==",
+  "dgSpecHash": "0ERAWDAPV+ZGMBTCByYYJhnwsnoAD1eXJ1eDfepcP+/VTc8g5uRMWY3s4pKF3qkTLI7ICgTgnWDS3Ik7LYue6g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\digip\\Desktop\\AuthenticationAndAuthorez\\DigipTechnologyCP\\DigipTechnologyCP\\DigipTechnologyCP.csproj",
+  "projectFilePath": "C:\\Authorization-Project\\DigipTechnologyCP\\DigipTechnologyCP\\DigipTechnologyCP.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\digip\\.nuget\\packages\\entityframework\\6.1.0\\entityframework.6.1.0.nupkg.sha512",
     "C:\\Users\\digip\\.nuget\\packages\\microsoft.aspnet.identity.core\\2.2.4\\microsoft.aspnet.identity.core.2.2.4.nupkg.sha512",

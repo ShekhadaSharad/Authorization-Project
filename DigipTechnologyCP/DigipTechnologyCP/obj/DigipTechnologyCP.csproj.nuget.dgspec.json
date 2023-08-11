@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\digip\\Desktop\\AuthenticationAndAuthorez\\DigipTechnologyCP\\DigipTechnologyCP\\DigipTechnologyCP.csproj": {}
+    "C:\\Authorization-Project\\DigipTechnologyCP\\DigipTechnologyCP\\DigipTechnologyCP.csproj": {}
   },
   "projects": {
-    "C:\\Users\\digip\\Desktop\\AuthenticationAndAuthorez\\DigipTechnologyCP\\DigipTechnologyCP\\DigipTechnologyCP.csproj": {
+    "C:\\Authorization-Project\\DigipTechnologyCP\\DigipTechnologyCP\\DigipTechnologyCP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\digip\\Desktop\\AuthenticationAndAuthorez\\DigipTechnologyCP\\DigipTechnologyCP\\DigipTechnologyCP.csproj",
+        "projectUniqueName": "C:\\Authorization-Project\\DigipTechnologyCP\\DigipTechnologyCP\\DigipTechnologyCP.csproj",
         "projectName": "DigipTechnologyCP",
-        "projectPath": "C:\\Users\\digip\\Desktop\\AuthenticationAndAuthorez\\DigipTechnologyCP\\DigipTechnologyCP\\DigipTechnologyCP.csproj",
+        "projectPath": "C:\\Authorization-Project\\DigipTechnologyCP\\DigipTechnologyCP\\DigipTechnologyCP.csproj",
         "packagesPath": "C:\\Users\\digip\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\digip\\Desktop\\AuthenticationAndAuthorez\\DigipTechnologyCP\\DigipTechnologyCP\\obj\\",
+        "outputPath": "C:\\Authorization-Project\\DigipTechnologyCP\\DigipTechnologyCP\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
