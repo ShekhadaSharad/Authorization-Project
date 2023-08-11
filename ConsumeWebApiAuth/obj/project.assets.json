@@ -12634,9 +12634,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Authorization-Project\\ConsumeWebApiAuth\\ConsumeWebApiAuth.csproj",
-      "projectName": "ConsumeWebApiAuth",
-      "projectPath": "C:\\Authorization-Project\\ConsumeWebApiAuth\\ConsumeWebApiAuth.csproj",
+      "projectUniqueName": "C:\\Authorization-Project\\ConsumeWebApiAuth\\Mvc.csproj",
+      "projectName": "Mvc",
+      "projectPath": "C:\\Authorization-Project\\ConsumeWebApiAuth\\Mvc.csproj",
       "packagesPath": "C:\\Users\\digip\\.nuget\\packages\\",
       "outputPath": "C:\\Authorization-Project\\ConsumeWebApiAuth\\obj\\",
       "projectStyle": "PackageReference",

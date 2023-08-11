@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SharadDemoProject\SharadDemoProject.csproj" />
+    <ProjectReference Include="..\SharadDemoProject\Authentication Web Api.csproj" />
   </ItemGroup>
 
   <ItemGroup>

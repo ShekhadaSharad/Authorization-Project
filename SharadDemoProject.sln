@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharadDemoProject", "SharadDemoProject\SharadDemoProject.csproj", "{FB493603-208C-4881-A592-1E745DFB4C3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authentication Web Api", "SharadDemoProject\Authentication Web Api.csproj", "{FB493603-208C-4881-A592-1E745DFB4C3C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "User.Management.Service", "User.Management.Service\User.Management.Service.csproj", "{6DFF60E1-3930-4A15-B428-ADD60BAD3F80}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsumeWebApiAuth", "ConsumeWebApiAuth\ConsumeWebApiAuth.csproj", "{11E97D4A-C0D0-441B-8D29-DDF36C717F1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvc", "ConsumeWebApiAuth\Mvc.csproj", "{11E97D4A-C0D0-441B-8D29-DDF36C717F1D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigipTechnologyCP", "DigipTechnologyCP\DigipTechnologyCP\DigipTechnologyCP.csproj", "{FCBA9411-3732-4070-A36D-B7D34C02D181}"
 EndProject
