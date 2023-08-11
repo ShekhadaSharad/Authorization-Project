@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Mk35Tak4uUJ3zHVyKRioLKePw5dmtowEkRnJD2sXZQKo2fbPz3EDITabUvhZWh9cfG+LsmLAHOuezhdBqe6wUw==",
+  "dgSpecHash": "/dVxAN0MH4VfropS4nby9mfw0M4tnV/lQcYivSICq4dKEPkGl2y2mmwS+Vim4AuCiP/1KwMonEsdHwOT4GjnhQ==",
   "success": true,
-  "projectFilePath": "C:\\Authorization-Project\\SharadDemoProject\\SharadDemoProject.csproj",
+  "projectFilePath": "C:\\Authorization-Project\\SharadDemoProject\\Authentication Web Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\digip\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\digip\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

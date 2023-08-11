@@ -4500,7 +4500,7 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "SharadDemoProject/1.0.0": {
+      "Authentication Web Api/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -4513,10 +4513,10 @@
           "User.Management.Service": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/SharadDemoProject.dll": {}
+          "bin/placeholder/Authentication Web Api.dll": {}
         },
         "runtime": {
-          "bin/placeholder/SharadDemoProject.dll": {}
+          "bin/placeholder/Authentication Web Api.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
@@ -12605,10 +12605,10 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "SharadDemoProject/1.0.0": {
+    "Authentication Web Api/1.0.0": {
       "type": "project",
-      "path": "../SharadDemoProject/SharadDemoProject.csproj",
-      "msbuildProject": "../SharadDemoProject/SharadDemoProject.csproj"
+      "path": "../SharadDemoProject/Authentication Web Api.csproj",
+      "msbuildProject": "../SharadDemoProject/Authentication Web Api.csproj"
     },
     "User.Management.Service/1.0.0": {
       "type": "project",
@@ -12618,13 +12618,13 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Authentication Web Api >= 1.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.20",
       "Microsoft.AspNetCore.Identity.UI >= 6.0.20",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.20",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.20",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.15",
-      "Serilog.Sinks.MSSqlServer >= 6.3.0",
-      "SharadDemoProject >= 1.0.0"
+      "Serilog.Sinks.MSSqlServer >= 6.3.0"
     ]
   },
   "packageFolders": {
@@ -12661,8 +12661,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Authorization-Project\\SharadDemoProject\\SharadDemoProject.csproj": {
-              "projectPath": "C:\\Authorization-Project\\SharadDemoProject\\SharadDemoProject.csproj"
+            "C:\\Authorization-Project\\SharadDemoProject\\Authentication Web Api.csproj": {
+              "projectPath": "C:\\Authorization-Project\\SharadDemoProject\\Authentication Web Api.csproj"
             }
           }
         }

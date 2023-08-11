@@ -4786,9 +4786,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Authorization-Project\\SharadDemoProject\\SharadDemoProject.csproj",
-      "projectName": "SharadDemoProject",
-      "projectPath": "C:\\Authorization-Project\\SharadDemoProject\\SharadDemoProject.csproj",
+      "projectUniqueName": "C:\\Authorization-Project\\SharadDemoProject\\Authentication Web Api.csproj",
+      "projectName": "Authentication Web Api",
+      "projectPath": "C:\\Authorization-Project\\SharadDemoProject\\Authentication Web Api.csproj",
       "packagesPath": "C:\\Users\\digip\\.nuget\\packages\\",
       "outputPath": "C:\\Authorization-Project\\SharadDemoProject\\obj\\",
       "projectStyle": "PackageReference",
