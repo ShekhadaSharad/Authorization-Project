@@ -18,14 +18,14 @@ namespace SharadDemoProject.Controllers
     [ApiController]
     public class AuthenticationController : ControllerBase
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IConfiguration _configuration;
         private readonly EmailServices _emailService;
         private readonly ILogger<AuthenticationController> _logger;
 
         public AuthenticationController(
-            UserManager<IdentityUser> userManager,
+            UserManager<ApplicationUser> userManager,
             RoleManager<IdentityRole> roleManager,
             IConfiguration configuration,
             EmailServices emailService,
@@ -49,7 +49,7 @@ namespace SharadDemoProject.Controllers
                     new Response { Status = "Error", Message = "User already Exists!" });
             }
 
-            IdentityUser user = new()
+            ApplicationUser user = new()
             {
                 Email = model.Email,
                 SecurityStamp = Guid.NewGuid().ToString(),
@@ -146,6 +146,10 @@ namespace SharadDemoProject.Controllers
 
                     var token = CreateToken(authClaims);
                     var refreshToken = GenerateRefreshToken();
+
+
+                    user.RefreshToken = refreshToken;
+                    user.RefreshTokenExpiryTime = DateTime.Now.AddMinutes(5);
 
                     await _userManager.UpdateAsync(user);
 

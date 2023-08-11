@@ -5,7 +5,7 @@ using SharadDemoProject.Model.Employees;
 
 namespace SharadDemoProject.Controllers.Context
 {
-    public class ApplicationContext : IdentityDbContext<IdentityUser>
+    public class ApplicationContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationContext(DbContextOptions<ApplicationContext> dbContext): base(dbContext) 
         {

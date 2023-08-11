@@ -27,7 +27,7 @@ builder.Services.AddDbContext<ApplicationContext>(Options =>
 Options.UseSqlServer(builder.Configuration.GetConnectionString("EmployeesCS")));
 
 // For Identity
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
         .AddEntityFrameworkStores<ApplicationContext>()
         .AddDefaultTokenProviders();
 
