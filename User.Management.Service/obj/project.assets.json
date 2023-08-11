@@ -3253,11 +3253,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\digip\\Desktop\\SharadDemoProject\\User.Management.Service\\User.Management.Service.csproj",
+      "projectUniqueName": "C:\\Authorization-Project\\User.Management.Service\\User.Management.Service.csproj",
       "projectName": "User.Management.Service",
-      "projectPath": "C:\\Users\\digip\\Desktop\\SharadDemoProject\\User.Management.Service\\User.Management.Service.csproj",
+      "projectPath": "C:\\Authorization-Project\\User.Management.Service\\User.Management.Service.csproj",
       "packagesPath": "C:\\Users\\digip\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\digip\\Desktop\\SharadDemoProject\\User.Management.Service\\obj\\",
+      "outputPath": "C:\\Authorization-Project\\User.Management.Service\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

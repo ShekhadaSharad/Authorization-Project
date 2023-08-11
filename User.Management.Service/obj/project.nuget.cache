@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mopV7XoSjOAYWdWaMVcnrEImcdbpTg+zapb/3Qe8GGWAlp9IK8WwQN7h8JxnQCI7A6MyI4I1tUqVqinjQWJP0g==",
+  "dgSpecHash": "HHgF2LJRCZpmbulWNH0iy4ccK/hA9lb3xSt/g3dVP+fIWr16tczeh/nyUKoM7ZOpeK939OXuJZWthXnLdOEXRg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\digip\\Desktop\\SharadDemoProject\\User.Management.Service\\User.Management.Service.csproj",
+  "projectFilePath": "C:\\Authorization-Project\\User.Management.Service\\User.Management.Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\digip\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\digip\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

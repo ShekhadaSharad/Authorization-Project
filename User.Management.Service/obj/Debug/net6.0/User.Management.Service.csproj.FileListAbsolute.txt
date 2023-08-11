@@ -10,3 +10,15 @@ C:\Users\digip\Desktop\SharadDemoProject\User.Management.Service\obj\Debug\net6.
 C:\Users\digip\Desktop\SharadDemoProject\User.Management.Service\obj\Debug\net6.0\refint\User.Management.Service.dll
 C:\Users\digip\Desktop\SharadDemoProject\User.Management.Service\obj\Debug\net6.0\User.Management.Service.pdb
 C:\Users\digip\Desktop\SharadDemoProject\User.Management.Service\obj\Debug\net6.0\ref\User.Management.Service.dll
+C:\Authorization-Project\User.Management.Service\bin\Debug\net6.0\User.Management.Service.deps.json
+C:\Authorization-Project\User.Management.Service\bin\Debug\net6.0\User.Management.Service.dll
+C:\Authorization-Project\User.Management.Service\bin\Debug\net6.0\User.Management.Service.pdb
+C:\Authorization-Project\User.Management.Service\obj\Debug\net6.0\User.Management.Service.csproj.AssemblyReference.cache
+C:\Authorization-Project\User.Management.Service\obj\Debug\net6.0\User.Management.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Authorization-Project\User.Management.Service\obj\Debug\net6.0\User.Management.Service.AssemblyInfoInputs.cache
+C:\Authorization-Project\User.Management.Service\obj\Debug\net6.0\User.Management.Service.AssemblyInfo.cs
+C:\Authorization-Project\User.Management.Service\obj\Debug\net6.0\User.Management.Service.csproj.CoreCompileInputs.cache
+C:\Authorization-Project\User.Management.Service\obj\Debug\net6.0\User.Management.Service.dll
+C:\Authorization-Project\User.Management.Service\obj\Debug\net6.0\refint\User.Management.Service.dll
+C:\Authorization-Project\User.Management.Service\obj\Debug\net6.0\User.Management.Service.pdb
+C:\Authorization-Project\User.Management.Service\obj\Debug\net6.0\ref\User.Management.Service.dll

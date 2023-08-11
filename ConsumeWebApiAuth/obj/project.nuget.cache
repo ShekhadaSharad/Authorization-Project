@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pUtJun6FAhe9wPWeoIn8Cps/d6otcD2TjWuv+XeBdW2FCNH58Su8xILJvkD5Vd1k181rwM31Qk9FBX0zwO+z2g==",
+  "dgSpecHash": "aToC1tBBU0RR4Lvf445oCKQ7lFZtgRUrIuytqSBKafj6PzOtmJt3AdHw4TWzE2HCqAI86J0RIS5ASivAbhx/pA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\digip\\Desktop\\SharadDemoProject\\ConsumeWebApiAuth\\ConsumeWebApiAuth.csproj",
+  "projectFilePath": "C:\\Authorization-Project\\ConsumeWebApiAuth\\ConsumeWebApiAuth.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\digip\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\digip\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
