@@ -6,6 +6,7 @@ using SharadDemoProject.Controllers.Context;
 using SharadDemoProject.Model.Authentication;
 using SharadDemoProject.Model.Employees;
 using System.Data;
+using System.Security.Claims;
 
 namespace SharadDemoProject.Controllers
 {
@@ -15,10 +16,12 @@ namespace SharadDemoProject.Controllers
     public class EmployeeController : ControllerBase
     {
         private readonly ApplicationContext _dbEmployee;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public EmployeeController(ApplicationContext context)
+        public EmployeeController(ApplicationContext context, IHttpContextAccessor httpContextAccessor)
         {
             _dbEmployee = context;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         [HttpGet]
@@ -30,6 +33,7 @@ namespace SharadDemoProject.Controllers
                 {
                     return NotFound();
                 }
+                var userName = _httpContextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.Name);
                 return await _dbEmployee.Employees.ToListAsync();
             }
             catch (Exception ex)
