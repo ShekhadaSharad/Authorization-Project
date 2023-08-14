@@ -109,3 +109,4 @@ C:\Authorization-Project\SharadDemoProject\obj\Debug\net6.0\refint\Authenticatio
 C:\Authorization-Project\SharadDemoProject\obj\Debug\net6.0\Authentication Web Api.pdb
 C:\Authorization-Project\SharadDemoProject\obj\Debug\net6.0\Authentication Web Api.genruntimeconfig.cache
 C:\Authorization-Project\SharadDemoProject\obj\Debug\net6.0\ref\Authentication Web Api.dll
+C:\Authorization-Project\SharadDemoProject\bin\Debug\net6.0\Elmah.dll

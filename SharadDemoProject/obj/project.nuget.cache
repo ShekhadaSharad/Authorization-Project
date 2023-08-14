@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "/dVxAN0MH4VfropS4nby9mfw0M4tnV/lQcYivSICq4dKEPkGl2y2mmwS+Vim4AuCiP/1KwMonEsdHwOT4GjnhQ==",
+  "dgSpecHash": "CELGcajsMNiVcOVL4V1GT66PsL0HizyV0RkRBRJ9e1PzVp5GLx98c2fnjnvEbFmmSU5wZ39WVnGTOJ6yA8o9Jw==",
   "success": true,
   "projectFilePath": "C:\\Authorization-Project\\SharadDemoProject\\Authentication Web Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\digip\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\digip\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\digip\\.nuget\\packages\\elmah.corelibrary\\1.2.2\\elmah.corelibrary.1.2.2.nupkg.sha512",
     "C:\\Users\\digip\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\digip\\.nuget\\packages\\mailkit\\3.2.0\\mailkit.3.2.0.nupkg.sha512",
     "C:\\Users\\digip\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.12\\microsoft.aspnetcore.authentication.jwtbearer.6.0.12.nupkg.sha512",
@@ -105,5 +106,16 @@
     "C:\\Users\\digip\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\digip\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'elmah.corelibrary 1.2.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "elmah.corelibrary",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

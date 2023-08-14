@@ -175,6 +175,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "elmah.corelibrary": {
+              "target": "Package",
+              "version": "[1.2.2, )"
             }
           },
           "imports": [

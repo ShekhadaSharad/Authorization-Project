@@ -46,6 +46,15 @@
           }
         }
       },
+      "elmah.corelibrary/1.2.2": {
+        "type": "package",
+        "compile": {
+          "lib/Elmah.dll": {}
+        },
+        "runtime": {
+          "lib/Elmah.dll": {}
+        }
+      },
       "Humanizer/2.14.1": {
         "type": "package",
         "dependencies": {
@@ -4510,7 +4519,8 @@
           "Serilog.AspNetCore": "7.0.0",
           "Serilog.Sinks.MSSqlServer": "6.3.0",
           "Swashbuckle.AspNetCore": "6.2.3",
-          "User.Management.Service": "1.0.0"
+          "User.Management.Service": "1.0.0",
+          "elmah.corelibrary": "1.2.2"
         },
         "compile": {
           "bin/placeholder/Authentication Web Api.dll": {}
@@ -4575,6 +4585,18 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "elmah.corelibrary/1.2.2": {
+      "sha512": "OEx4ds9r2bw2/45VZwfw11lLv4y+mC2FUZxp7LsjmauFxj92K1kx8hafSBvls+V9s0WH0wv84B1LfWN/EaGfkg==",
+      "type": "package",
+      "path": "elmah.corelibrary/1.2.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "elmah.corelibrary.1.2.2.nupkg.sha512",
+        "elmah.corelibrary.nuspec",
+        "lib/Elmah.dll"
       ]
     },
     "Humanizer/2.14.1": {
@@ -12726,5 +12748,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'elmah.corelibrary 1.2.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "elmah.corelibrary",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

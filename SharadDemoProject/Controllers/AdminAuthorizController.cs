@@ -24,7 +24,7 @@ namespace SharadDemoProject.Controllers
             {
                 if (!context.HttpContext.User.Identity.IsAuthenticated)
                 {
-                    Serilog.Log.Error($"You are not authorized to access this resource : {context}. login this user : {userName}");
+                    Serilog.Log.Error($"You are not authorized to access this resource :{context}. login this user : {userName}");
                     context.Result = new UnauthorizedObjectResult(
                         new { Status = "Error", Message = "You are not authorized to access this resource." });
                 }
@@ -76,7 +76,7 @@ namespace SharadDemoProject.Controllers
             try
             {
                 var user = await _userManager.FindByEmailAsync(email);
-
+ 
                 if (user == null)
                 {
                     Serilog.Log.Error($"User {email} not found.");

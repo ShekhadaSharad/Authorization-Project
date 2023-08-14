@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "xaMhIHdkBK9xoBFKTuon2rb3vbFAgMoo39V5bQWuaFU4nDdupDLnamjBKN1M0MCDH0YXQkuK6Z+BjGeuqKS0dw==",
+  "dgSpecHash": "tgMns9MM2T/hQCJsBEP6rydG3q1NwHkyQ+e6uFKOEFk0DQULmuled6f3Khiyb5pivLVjfDfh1QwsaK6TN9py1A==",
   "success": true,
   "projectFilePath": "C:\\Authorization-Project\\ConsumeWebApiAuth\\Mvc.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\digip\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\digip\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\digip\\.nuget\\packages\\elmah.corelibrary\\1.2.2\\elmah.corelibrary.1.2.2.nupkg.sha512",
     "C:\\Users\\digip\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\digip\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\digip\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",
@@ -262,5 +263,16 @@
     "C:\\Users\\digip\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\digip\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'elmah.corelibrary 1.2.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "elmah.corelibrary",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

@@ -14,11 +14,13 @@ namespace SharadDemoProject.Controllers
     {
         private readonly ApplicationContext _dbEmployee;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly Logger<EmployeeController> _logger;
 
-        public EmployeeController(ApplicationContext context, IHttpContextAccessor httpContextAccessor)
+        public EmployeeController(ApplicationContext context, IHttpContextAccessor httpContextAccessor, Logger<EmployeeController> logger)
         {
             _dbEmployee = context;
             _httpContextAccessor = httpContextAccessor;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -31,13 +33,16 @@ namespace SharadDemoProject.Controllers
                 {
                     return NotFound();
                 }
+                List<EmployeeModel> employees = new List<EmployeeModel>();
+                employees = null;
+                employees.Add(employees[0]);
                 return await _dbEmployee.Employees.ToListAsync();
             }
             catch (Exception ex)
             {
-               
-                Serilog.Log.Error($"An error occurred: {ex.Message},login this user : {userName}");
-                return StatusCode(500);
+
+               _logger.LogError($"An error occurred: {ex.Message},login this user : {userName}");
+                return StatusCode(500, new { Status = "Error", Message = "An error occurred while processing the request." });
             }
         }
 
@@ -60,7 +65,6 @@ namespace SharadDemoProject.Controllers
             }
             catch (Exception ex)
             {
-               
                 Serilog.Log.Error($"An error occurred: {ex.Message},login this user : {userName}");
                 return StatusCode(500);
             }
@@ -82,11 +86,9 @@ namespace SharadDemoProject.Controllers
                 await _dbEmployee.SaveChangesAsync();
 
                 return CreatedAtAction(null, null, new { id = employeeDetails.EmpId }, employeeDetails);
-
             }
             catch (Exception ex)
             {
-              
                 Serilog.Log.Error($"An error occurred: {ex.Message},login this user : {userName}");
                 return StatusCode(500, "An error occurred while processing the request.");
             }
