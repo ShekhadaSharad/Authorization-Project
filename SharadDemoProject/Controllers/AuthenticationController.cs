@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using SharadDemoProject.Controllers.Context;
 using SharadDemoProject.Model.Authentication;
@@ -9,7 +8,6 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using User.Management.Service.Model;
 using User.Management.Service.Services;
 
 namespace SharadDemoProject.Controllers

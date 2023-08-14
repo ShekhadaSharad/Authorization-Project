@@ -1,16 +1,57 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Serilog.Context;
+using Microsoft.AspNetCore.Mvc.Filters;
 using SharadDemoProject.Controllers.Context;
 using SharadDemoProject.Model.Authentication;
 using System.Security.Claims;
 
 namespace SharadDemoProject.Controllers
 {
+
+    public class CustomAuthorizeFilter : IAuthorizationFilter
+    {
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public CustomAuthorizeFilter(IHttpContextAccessor httpContextAccessor)
+        {
+            _httpContextAccessor = httpContextAccessor;
+        }
+
+        public void OnAuthorization(AuthorizationFilterContext context)
+        {
+            var userName = _httpContextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.Name);
+            try
+            {
+                if (!context.HttpContext.User.Identity.IsAuthenticated)
+                {
+                    Serilog.Log.Error($"You are not authorized to access this resource : {context}. login this user : {userName}");
+                    context.Result = new UnauthorizedObjectResult(
+                        new { Status = "Error", Message = "You are not authorized to access this resource." });
+                }
+                else if (!context.HttpContext.User.IsInRole("Admin"))
+                {
+                    context.Result = new ObjectResult(
+                    new { Status = "Unauthorized", Message = "Only Access Admin " })
+                    {
+                        StatusCode = StatusCodes.Status403Forbidden
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                 Serilog.Log.Error($"An error occurred while processing the request{ex} . login this user : {userName}");
+                context.Result = new ObjectResult(
+                    new { Status = "Error", Message = "An error occurred while processing the request." })
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError
+                };
+            }
+        }
+    }
+
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Admin")]
+    [TypeFilter(typeof(CustomAuthorizeFilter))]
     public class AdminAuthorizController : ControllerBase
     {
 
