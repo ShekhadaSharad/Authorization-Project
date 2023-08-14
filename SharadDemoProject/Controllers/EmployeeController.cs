@@ -14,13 +14,11 @@ namespace SharadDemoProject.Controllers
     {
         private readonly ApplicationContext _dbEmployee;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly Logger<EmployeeController> _logger;
 
-        public EmployeeController(ApplicationContext context, IHttpContextAccessor httpContextAccessor, Logger<EmployeeController> logger)
+        public EmployeeController(ApplicationContext context, IHttpContextAccessor httpContextAccessor)
         {
             _dbEmployee = context;
             _httpContextAccessor = httpContextAccessor;
-            _logger = logger;
         }
 
         [HttpGet]
@@ -40,8 +38,7 @@ namespace SharadDemoProject.Controllers
             }
             catch (Exception ex)
             {
-
-               _logger.LogError($"An error occurred: {ex.Message},login this user : {userName}");
+                Serilog.Log.Error($"An error occurred: {ex.Message},login this user : {userName}");
                 return StatusCode(500, new { Status = "Error", Message = "An error occurred while processing the request." });
             }
         }
