@@ -1,11 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SharadDemoProject.Controllers.Context;
-using SharadDemoProject.Model.Authentication;
 using SharadDemoProject.Model.Employees;
-using System.Data;
 using System.Security.Claims;
 
 namespace SharadDemoProject.Controllers
@@ -27,18 +24,19 @@ namespace SharadDemoProject.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<EmployeeModel>>> GetEmployeeAsync()
         {
+            var userName = _httpContextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.Name);
             try
             {
                 if (_dbEmployee.Employees == null)
                 {
                     return NotFound();
                 }
-                var userName = _httpContextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.Name);
                 return await _dbEmployee.Employees.ToListAsync();
             }
             catch (Exception ex)
             {
-                Serilog.Log.Error($"An error occurred: {ex.Message}");
+               
+                Serilog.Log.Error($"An error occurred: {ex.Message},login this user : {userName}");
                 return StatusCode(500);
             }
         }
@@ -46,6 +44,7 @@ namespace SharadDemoProject.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<EmployeeModel>> GetEmployeeAsync(int id)
         {
+            var userName = _httpContextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.Name);
             try
             {
                 if (_dbEmployee.Employees == null)
@@ -61,7 +60,8 @@ namespace SharadDemoProject.Controllers
             }
             catch (Exception ex)
             {
-                Serilog.Log.Error($"An error occurred: {ex.Message}");
+               
+                Serilog.Log.Error($"An error occurred: {ex.Message},login this user : {userName}");
                 return StatusCode(500);
             }
         }
@@ -69,11 +69,12 @@ namespace SharadDemoProject.Controllers
         [HttpPost("Create")]
         public async Task<ActionResult<EmployeeModel>> PostEmployeeAsync(EmployeeModel employeeDetails)
         {
+            var userName = _httpContextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.Name);
             try
             {
                 if (IsEmailAlreadyEntered(employeeDetails.EmpEmail))
                 {
-                    Serilog.Log.Warning($"Email ID: {employeeDetails.EmpEmail} already exists.");
+                    Serilog.Log.Warning($"Email ID: {employeeDetails.EmpEmail} already exists. login this user : {userName}");
                     return BadRequest("Email ID already exists.");
                 }
 
@@ -85,7 +86,8 @@ namespace SharadDemoProject.Controllers
             }
             catch (Exception ex)
             {
-                Serilog.Log.Error($"An error occurred: {ex.Message}");
+              
+                Serilog.Log.Error($"An error occurred: {ex.Message},login this user : {userName}");
                 return StatusCode(500, "An error occurred while processing the request.");
             }
         }
@@ -127,7 +129,8 @@ namespace SharadDemoProject.Controllers
             }
             catch (Exception ex)
             {
-                Serilog.Log.Error($"An error occurred: {ex.Message}");
+                var userName = _httpContextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.Name);
+                Serilog.Log.Error($"An error occurred: {ex.Message},login this user : {userName}");
                 return StatusCode(500, $"An error occurred while processing the request.{ex.Message}");
             }
         }
@@ -161,7 +164,8 @@ namespace SharadDemoProject.Controllers
             }
             catch (Exception ex)
             {
-                Serilog.Log.Error($"An error occurred: {ex.Message}");
+                var userName = _httpContextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.Name);
+                Serilog.Log.Error($"An error occurred: {ex.Message},login this user : {userName}");
                 return StatusCode(500, $"An error occurred while processing the request.{ex.Message}");
             }
         }

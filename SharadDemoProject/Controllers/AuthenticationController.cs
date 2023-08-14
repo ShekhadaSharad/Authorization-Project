@@ -23,28 +23,33 @@ namespace SharadDemoProject.Controllers
         private readonly IConfiguration _configuration;
         private readonly EmailServices _emailService;
         private readonly ILogger<AuthenticationController> _logger;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
         public AuthenticationController(
             UserManager<ApplicationUser> userManager,
             RoleManager<IdentityRole> roleManager,
             IConfiguration configuration,
             EmailServices emailService,
-            ILogger<AuthenticationController> logger)
+            ILogger<AuthenticationController> logger,
+            IHttpContextAccessor httpContextAccessor)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _configuration = configuration;
             _emailService = emailService;
             _logger = logger;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         [HttpPost("RegisterRoleBased")]
         public async Task<IActionResult> RegisterAsync([FromBody] RegisterModel model, string role)
         {
+            var userName = _httpContextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.Name);
+
             var userExist = await _userManager.FindByEmailAsync(model.Email);
             if (userExist != null)
             {
-                _logger.LogWarning($"User with email {model.Email} already exists.");
+                Serilog.Log.Warning($"User with email {model.Email} already exists. login this user : {userName}");
                 return StatusCode(StatusCodes.Status403Forbidden,
                     new Response { Status = "Error", Message = "User already Exists!" });
             }
@@ -60,6 +65,7 @@ namespace SharadDemoProject.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (!result.Succeeded)
                 {
+                    Serilog.Log.Warning($"User creation failed! {model.Email} Please check user details and try again. login this user : {userName}");
                     return StatusCode(StatusCodes.Status500InternalServerError,
                         new Response { Status = "Error", Message = "User creation failed! Please check user details and try again." });
                 }
@@ -70,7 +76,9 @@ namespace SharadDemoProject.Controllers
             }
             else
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "This Role Doesnot Exsit" });
+                Serilog.Log.Warning($"This Role Doesnot Exsit{role}. login this user : {userName}");
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    new Response { Status = "Error", Message = "This Role Doesnot Exsit" });
             }
         }
 
@@ -78,13 +86,15 @@ namespace SharadDemoProject.Controllers
         [Route("Register")]
         public async Task<IActionResult> Register([FromBody] RegisterModel model)
         {
+            var userName = _httpContextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.Name);
             try
             {
                 var userExists = await _userManager.FindByNameAsync(model.Username);
                 if (userExists != null)
                 {
                     Serilog.Log.Error($"User {model.Username} already exists!");
-                    return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists!" });
+                    return StatusCode(StatusCodes.Status500InternalServerError,
+                        new Response { Status = "Error", Message = "User already exists!" });
                 }
 
                 ApplicationUser user = new()
@@ -97,35 +107,38 @@ namespace SharadDemoProject.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (!result.Succeeded)
                 {
-                    Serilog.Log.Error($"User creation failed for {model.Username},{model.Email},{model.Password}.");
-                    return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User creation failed! Please check user details and try again." });
+                    Serilog.Log.Error($"User creation failed for {model.Username},{model.Email},{model.Password}. login this user : {userName}");
+                    return StatusCode(StatusCodes.Status500InternalServerError, 
+                        new Response { Status = "Error", Message = "User creation failed! Please check user details and try again." });
                 }
 
                 return Ok(new Response { Status = "Success", Message = "User created successfully!" });
             }
             catch (Exception ex)
             {
-                Serilog.Log.Error(ex, "An error occurred during user registration.");
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "An error occurred during user registration." });
+                Serilog.Log.Error(ex, $"An error occurred during user registration.  login this user : {userName}");
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    new Response { Status = "Error", Message = "An error occurred during user registration." });
             }
         }
 
 
-        [HttpGet]
-        public IActionResult TestEmail()
-        {
-            var message = new Message(
-                new string[]
-                { "shekhadasharad@gmail.com" }, "Test", "<h1> Jay Swaminarayan !<h1>");
+        //[HttpGet]
+        //public IActionResult TestEmail()
+        //{
+        //    var message = new Message(
+        //        new string[]
+        //        { "shekhadasharad@gmail.com" }, "Test", "<h1> Jay Swaminarayan !<h1>");
 
-            _emailService.SendEmail(message);
-            return StatusCode(StatusCodes.Status200OK, new Response { Status = "Success", Message = "Email Send  SucceessFully " });
+        //    _emailService.SendEmail(message);
+        //    return StatusCode(StatusCodes.Status200OK, new Response { Status = "Success", Message = "Email Send  SucceessFully " });
 
-        }
+        //}
         [HttpPost]
         [Route("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
+            var userName = _httpContextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.Name);
             try
             {
                 var user = await _userManager.FindByNameAsync(model.Username);
@@ -165,7 +178,7 @@ namespace SharadDemoProject.Controllers
             }
             catch (Exception ex)
             {
-                Serilog.Log.Error("An error occurred while processing the request." + ex);
+                Serilog.Log.Error($"An error occurred while processing the request.{ex}.  login this user : {userName} ");
                 return StatusCode(500, "An error occurred while processing the request.");
             }
         }
@@ -208,7 +221,10 @@ namespace SharadDemoProject.Controllers
             var tokenHandler = new JwtSecurityTokenHandler();
             var principal = tokenHandler.ValidateToken(token, tokenValidationParameters, out SecurityToken securityToken);
             if (securityToken is not JwtSecurityToken jwtSecurityToken || !jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
+            {
                 throw new SecurityTokenException("Invalid token");
+            }
+              
 
             return principal;
         }
@@ -220,6 +236,7 @@ namespace SharadDemoProject.Controllers
         [Authorize(Roles = "Admin,Hr")]
         public async Task<IActionResult> Register1(RegisterModel model) 
         {
+            var userName = _httpContextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.Name);
             try
             {
                 List<RegisterModel> registerModel111= new List<RegisterModel>();
@@ -229,8 +246,7 @@ namespace SharadDemoProject.Controllers
             }
             catch (Exception ex)
             {
-                // ... (existing code)
-                Serilog.Log.Error($"An error occurred during user registration: {ex.Message}");
+                Serilog.Log.Error($"An error occurred during user registration: {ex.Message}. login this user : {userName}");
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "An error occurred during user registration." });
             }
         }
