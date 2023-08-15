@@ -1,15 +1,9 @@
-﻿using Amazon.Runtime.Internal;
-using Azure;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Serilog.Events;
 using SharadDemoProject.Controllers.Context;
-using SharadDemoProject.Model.Authentication;
 using SharadDemoProject.Model.Employees;
 using System.Security.Claims;
-using static System.Net.WebRequestMethods;
 using Response = SharadDemoProject.Model.Authentication.Response;
 
 namespace SharadDemoProject.Controllers
@@ -45,7 +39,7 @@ namespace SharadDemoProject.Controllers
             }
             catch (Exception ex)
             {
-                Serilog.Log.Error($"HTTP : {Request.Method} : {Request.Path} responded : {Response.StatusCode}. An error occurred: {ex.Message},login this user : {userName}");
+                Serilog.Log.Error($"HTTP : {Request.Method} : {Request.Path},{_httpContextAccessor?.HttpContext?.Request.Headers.UserAgent}, Ip :- {_httpContextAccessor?.HttpContext?.Connection?.RemoteIpAddress}  responded : {Response.StatusCode}. An error occurred: {ex.Message},login this user : {userName}");
                 return BadRequest( new Response { Status = "Error", Message = "An error occurred while processing the request." });
             }
         }
@@ -73,6 +67,7 @@ namespace SharadDemoProject.Controllers
                 return BadRequest(new Response { Status = "Error", Message = "An error occurred while processing the request." });
             }
         }
+
         [HttpPost("Create")]
         public async Task<ActionResult<EmployeeModel>> PostEmployeeAsync(EmployeeModel employeeDetails)
         {
