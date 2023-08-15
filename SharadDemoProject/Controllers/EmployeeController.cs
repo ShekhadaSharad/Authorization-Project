@@ -1,9 +1,16 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Amazon.Runtime.Internal;
+using Azure;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Serilog.Events;
 using SharadDemoProject.Controllers.Context;
+using SharadDemoProject.Model.Authentication;
 using SharadDemoProject.Model.Employees;
 using System.Security.Claims;
+using static System.Net.WebRequestMethods;
+using Response = SharadDemoProject.Model.Authentication.Response;
 
 namespace SharadDemoProject.Controllers
 {
@@ -21,7 +28,7 @@ namespace SharadDemoProject.Controllers
             _httpContextAccessor = httpContextAccessor;
         }
 
-        [HttpGet]
+         [HttpGet]
         public async Task<ActionResult<IEnumerable<EmployeeModel>>> GetEmployeeAsync()
         {
             var userName = _httpContextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.Name);
@@ -38,8 +45,8 @@ namespace SharadDemoProject.Controllers
             }
             catch (Exception ex)
             {
-                Serilog.Log.Error($"An error occurred: {ex.Message},login this user : {userName}");
-                return StatusCode(500, new { Status = "Error", Message = "An error occurred while processing the request." });
+                Serilog.Log.Error($"HTTP : {Request.Method} : {Request.Path} responded : {Response.StatusCode}. An error occurred: {ex.Message},login this user : {userName}");
+                return BadRequest( new Response { Status = "Error", Message = "An error occurred while processing the request." });
             }
         }
 
@@ -56,17 +63,16 @@ namespace SharadDemoProject.Controllers
                 var employee = await _dbEmployee.Employees.FindAsync(id);
                 if (employee == null)
                 {
-                    return NotFound();
+                    return NotFound(); 
                 }
                 return employee;
             }
             catch (Exception ex)
             {
-                Serilog.Log.Error($"An error occurred: {ex.Message},login this user : {userName}");
-                return StatusCode(500);
+                Serilog.Log.Error($"HTTP : {Request.Method} : {Request.Path} responded : {Response.StatusCode}. An error occurred: {ex.Message},login this user : {userName}");
+                return BadRequest(new Response { Status = "Error", Message = "An error occurred while processing the request." });
             }
         }
-
         [HttpPost("Create")]
         public async Task<ActionResult<EmployeeModel>> PostEmployeeAsync(EmployeeModel employeeDetails)
         {
@@ -78,25 +84,21 @@ namespace SharadDemoProject.Controllers
                     Serilog.Log.Warning($"Email ID: {employeeDetails.EmpEmail} already exists. login this user : {userName}");
                     return BadRequest("Email ID already exists.");
                 }
-
                 _dbEmployee.Employees.Add(employeeDetails);
                 await _dbEmployee.SaveChangesAsync();
-
                 return CreatedAtAction(null, null, new { id = employeeDetails.EmpId }, employeeDetails);
             }
             catch (Exception ex)
             {
-                Serilog.Log.Error($"An error occurred: {ex.Message},login this user : {userName}");
-                return StatusCode(500, "An error occurred while processing the request.");
+                Serilog.Log.Error($"HTTP : {Request.Method} : {Request.Path} responded : {Response.StatusCode}. An error occurred: {ex.Message},login this user : {userName}");
+                return BadRequest(new Response { Status = "Error", Message = "An error occurred while processing the request." });
             }
         }
-
         private bool IsEmailAlreadyEntered(string email)
         {
             var existingEmployee = _dbEmployee.Employees.FirstOrDefault(e => e.EmpEmail.Equals(email));
             return existingEmployee != null;
         }
-
         [HttpPut("{id}")]
         public async Task<IActionResult> PutEmployeeAsync(int id, EmployeeModel employeeDetails)
         {
@@ -106,9 +108,7 @@ namespace SharadDemoProject.Controllers
                 {
                     return NotFound();
                 }
-
                 _dbEmployee.Entry(employeeDetails).State = EntityState.Modified;
-
                 try
                 {
                     await _dbEmployee.SaveChangesAsync();
@@ -129,16 +129,14 @@ namespace SharadDemoProject.Controllers
             catch (Exception ex)
             {
                 var userName = _httpContextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.Name);
-                Serilog.Log.Error($"An error occurred: {ex.Message},login this user : {userName}");
-                return StatusCode(500, $"An error occurred while processing the request.{ex.Message}");
+                Serilog.Log.Error($"HTTP : {Request.Method} : {Request.Path} responded : {Response.StatusCode}. An error occurred: {ex.Message},login this user : {userName}");
+                return BadRequest(new Response { Status = "Error", Message = "An error occurred while processing the request." });
             }
         }
-
         private bool EmployeeAvilable(int id)
         {
             return (_dbEmployee.Employees?.Any(x => x.EmpId == id)).GetValueOrDefault();
         }
-
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEmployeeAsync(int id)
         {
@@ -148,15 +146,12 @@ namespace SharadDemoProject.Controllers
                 {
                     return NotFound();
                 }
-
                 var employee = await _dbEmployee.Employees.FindAsync(id);
                 if (employee == null)
                 {
                     return NotFound();
                 }
-
                 _dbEmployee.Employees.Remove(employee);
-
                 await _dbEmployee.SaveChangesAsync();
 
                 return Ok("Employee Deleted Successfully");
@@ -164,8 +159,8 @@ namespace SharadDemoProject.Controllers
             catch (Exception ex)
             {
                 var userName = _httpContextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.Name);
-                Serilog.Log.Error($"An error occurred: {ex.Message},login this user : {userName}");
-                return StatusCode(500, $"An error occurred while processing the request.{ex.Message}");
+                Serilog.Log.Error($"HTTP : {Request.Method} : {Request.Path} responded : {Response.StatusCode}. An error occurred: {ex.Message},login this user : {userName}");
+                return BadRequest(new Response { Status = "Error", Message = "An error occurred while processing the request." });
             }
         }
     }

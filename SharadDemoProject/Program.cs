@@ -12,9 +12,10 @@ using User.Management.Service.Services;
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration;
 
-var config = new ConfigurationBuilder().
-                       AddJsonFile("appsettings.json").Build();
-Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(config).CreateLogger();
+var appSettings = new ConfigurationBuilder()
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json")
+    .Build();
 
 builder.Host.UseSerilog((hostingContext, loggerConfiguration) =>
 {
