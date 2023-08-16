@@ -116,18 +116,6 @@ namespace SharadDemoProject.Controllers
             }
         }
 
-
-        //[HttpGet]
-        //public IActionResult TestEmail()
-        //{
-        //    var message = new Message(
-        //        new string[]
-        //        { "shekhadasharad@gmail.com" }, "Test", "<h1> Jay Swaminarayan !<h1>");
-
-        //    _emailService.SendEmail(message);
-        //    return StatusCode(StatusCodes.Status200OK, new Response { Status = "Success", Message = "Email Send  SucceessFully " });
-
-        //}
         [HttpPost]
         [Route("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
@@ -221,29 +209,6 @@ namespace SharadDemoProject.Controllers
               
 
             return principal;
-        }
-
-
-
-        [HttpPost]
-        [Route("Register1")]
-        [Authorize(Roles = "Admin,Hr")]
-        public async Task<IActionResult> Register1(RegisterModel model) 
-        {
-            var userName = _httpContextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.Name);
-            try
-            {
-                List<RegisterModel> registerModel111= new List<RegisterModel>();
-                registerModel111 = null;
-                registerModel111.Add(model);
-                return Ok(new Response { Status = "Success", Message = "User created successfully! "});
-            }
-            catch (Exception ex)
-            {
-
-                Serilog.Log.Error($"HTTP : {Request.Method} : {Request.Path} responded : {Response.StatusCode}. An error occurred during user registration: {ex.Message}. login this user : {userName}");
-                return BadRequest(new Response { Status = "Error", Message = "An error occurred during user registration." });
-            }
         }
     }
 }

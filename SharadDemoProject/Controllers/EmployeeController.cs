@@ -32,9 +32,6 @@ namespace SharadDemoProject.Controllers
                 {
                     return NotFound();
                 }
-                List<EmployeeModel> employees = new List<EmployeeModel>();
-                employees = null;
-                employees.Add(employees[0]);
                 return await _dbEmployee.Employees.ToListAsync();
             }
             catch (Exception ex)
