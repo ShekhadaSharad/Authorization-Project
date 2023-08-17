@@ -1,8 +1,8 @@
 {
   "Files": [
     {
-      "Id": "C:\\Authorization-Project\\ConsumeWebApiAuth\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\ConsumeWebApiAuth.bundle.scp.css",
-      "PackagePath": "staticwebassets\\ConsumeWebApiAuth.bundle.scp.css"
+      "Id": "C:\\Authorization-Project\\ConsumeWebApiAuth\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Mvc.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Mvc.bundle.scp.css"
     },
     {
       "Id": "C:\\Authorization-Project\\ConsumeWebApiAuth\\wwwroot\\css\\site.css",
@@ -245,20 +245,20 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.ConsumeWebApiAuth.Microsoft.AspNetCore.StaticWebAssets.props",
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Mvc.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
     {
-      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.ConsumeWebApiAuth.props",
-      "PackagePath": "build\\ConsumeWebApiAuth.props"
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.Mvc.props",
+      "PackagePath": "build\\Mvc.props"
     },
     {
-      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.ConsumeWebApiAuth.props",
-      "PackagePath": "buildMultiTargeting\\ConsumeWebApiAuth.props"
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.Mvc.props",
+      "PackagePath": "buildMultiTargeting\\Mvc.props"
     },
     {
-      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.ConsumeWebApiAuth.props",
-      "PackagePath": "buildTransitive\\ConsumeWebApiAuth.props"
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.Mvc.props",
+      "PackagePath": "buildTransitive\\Mvc.props"
     }
   ],
   "ElementsToRemove": []

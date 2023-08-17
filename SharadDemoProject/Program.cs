@@ -54,7 +54,6 @@ builder.Services.AddAuthentication(options =>
 
         ValidAudience = configuration["JWT:ValidAudience"],
         ValidIssuer = configuration["JWT:ValidIssuer"],
-
     };
 });
 
