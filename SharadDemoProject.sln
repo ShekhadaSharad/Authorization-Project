@@ -25,6 +25,8 @@ Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "AspnetIdentityRoleBasedTuto
 		IORedirection = Auto
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspnetIdentityRoleBasedTutorial", "..\Users\digip\Downloads\AspnetIdentityRoleBasedTutorial\AspnetIdentityRoleBasedTutorial\AspnetIdentityRoleBasedTutorial\AspnetIdentityRoleBasedTutorial.csproj", "{B3028AE7-F502-4827-A59D-3CF3EBF977A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,14 @@ Global
 		{7A23E68C-E225-4C2C-A771-E40B0B0BE5AA}.Debug|x64.ActiveCfg = Release|x64
 		{7A23E68C-E225-4C2C-A771-E40B0B0BE5AA}.Release|Any CPU.ActiveCfg = Release|x64
 		{7A23E68C-E225-4C2C-A771-E40B0B0BE5AA}.Release|x64.ActiveCfg = Release|x64
+		{B3028AE7-F502-4827-A59D-3CF3EBF977A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3028AE7-F502-4827-A59D-3CF3EBF977A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3028AE7-F502-4827-A59D-3CF3EBF977A2}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B3028AE7-F502-4827-A59D-3CF3EBF977A2}.Debug|x64.Build.0 = Debug|Any CPU
+		{B3028AE7-F502-4827-A59D-3CF3EBF977A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3028AE7-F502-4827-A59D-3CF3EBF977A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3028AE7-F502-4827-A59D-3CF3EBF977A2}.Release|x64.ActiveCfg = Release|Any CPU
+		{B3028AE7-F502-4827-A59D-3CF3EBF977A2}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
