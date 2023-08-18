@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SharadDemoProject.Model.Employees;
 
-namespace SharadDemoProject.Controllers.Context  
+namespace SharadDemoProject.DataContext
 {
     public class ApplicationContext : IdentityDbContext<ApplicationUser>
     {

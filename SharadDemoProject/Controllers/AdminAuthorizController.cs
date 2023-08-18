@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using SharadDemoProject.Controllers.Context;
+using SharadDemoProject.DataContext;
 using SharadDemoProject.Model.Authentication;
 using System.Security.Claims;
 

@@ -1,15 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using SharadDemoProject.Controllers.Context;
+using SharadDemoProject.DataContext;
 using SharadDemoProject.Model.Authentication;
-using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using User.Management.Service.Services;
 
 namespace SharadDemoProject.Controllers
 {
@@ -20,7 +17,6 @@ namespace SharadDemoProject.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IConfiguration _configuration;
-        private readonly EmailServices _emailService;
         private readonly ILogger<AuthenticationController> _logger;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
@@ -28,14 +24,12 @@ namespace SharadDemoProject.Controllers
             UserManager<ApplicationUser> userManager,
             RoleManager<IdentityRole> roleManager,
             IConfiguration configuration,
-            EmailServices emailService,
             ILogger<AuthenticationController> logger,
             IHttpContextAccessor httpContextAccessor)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _configuration = configuration;
-            _emailService = emailService;
             _logger = logger;
             _httpContextAccessor = httpContextAccessor;
         }

@@ -4,10 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
-using SharadDemoProject.Controllers.Context;
+using SharadDemoProject.DataContext;
 using System.Text;
-using User.Management.Service.Model;
-using User.Management.Service.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration;
@@ -56,15 +54,6 @@ builder.Services.AddAuthentication(options =>
         ValidIssuer = configuration["JWT:ValidIssuer"],
     };
 });
-
-
-//Add Email Configrs
-var emailConfig = configuration.GetSection("EmailConfiguration")
-    .Get<EmailConfigration>();
-builder.Services.AddSingleton(emailConfig);
-
-builder.Services.AddScoped<EmailServices, EmailServices>();
-
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

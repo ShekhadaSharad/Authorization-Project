@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace SharadDemoProject.Controllers.Context
+namespace SharadDemoProject.DataContext
 {
     public class ApplicationUser : IdentityUser
     {

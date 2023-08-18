@@ -1,16 +1,23 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using SharadDemoProject.Controllers.Context;
+using SharadDemoProject.DataContext;
 using SharadDemoProject.Model.Employees;
 using System.Security.Claims;
 using Response = SharadDemoProject.Model.Authentication.Response;
 
 namespace SharadDemoProject.Controllers
 {
+    public enum RoleTypes
+    {
+        Admin,
+        Hr,
+        Manager
+    }
+
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Admin,Hr,Manager")]
+    [Authorize(Roles = $"Admin,Hr,Manager")]
     public class EmployeeController : ControllerBase
     {
         private readonly ApplicationContext _dbEmployee;

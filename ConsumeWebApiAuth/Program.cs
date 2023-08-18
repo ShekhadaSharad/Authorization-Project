@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ConsumeWebApiAuth.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
+
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("ConsumeWebApiAuthDbContextConnection") ?? throw new InvalidOperationException("Connection string 'ConsumeWebApiAuthDbContextConnection' not found.");
 
@@ -9,6 +11,14 @@ builder.Services.AddDbContext<ConsumeWebApiAuthDbContext>(options =>
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ConsumeWebApiAuthDbContext>();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+     .AddCookie(options =>
+     {
+         options.LoginPath = "/Cookies/Login";
+         options.Cookie.Name = "AshProgHelpCookies";
+     });
+builder.Services.AddMvc();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -27,10 +37,11 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-app.UseAuthentication();;
 
+app.UseAuthentication();
 app.UseAuthorization();
 
+app.UseCookiePolicy();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=EmployeeCunsume}/{action=Index}/{id?}");

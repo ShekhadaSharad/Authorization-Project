@@ -5,7 +5,6 @@ namespace DigipTechnologyCP.Class
 {
     public class Authentication
     {
-
         public static string? PasswordRegister { get; set; }
         private static readonly string apiUrlWeather = "https://localhost:7015/api/Employee";
         private static readonly string apiUrlLogin = "https://localhost:7015/api/Authentication/login";
